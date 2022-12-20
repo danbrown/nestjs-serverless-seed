@@ -23,6 +23,7 @@
     "migrate:prod": "npx prisma migrate deploy",
     "start:migrate:dev": "npm run migrate:prod && npx prisma generate && npm run start:dev",
     "start:migrate:prod": "npm run migrate:prod && npx prisma generate && npm run start:prod",
+    "generate": "npx prisma generate",
     "watch": "node ./server.dev.js",
     "compose": "docker-compose -f docker-compose.yaml up -d --build --force-recreate",
     "remote:install": "node ./install.dev.js"
