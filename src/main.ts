@@ -27,14 +27,7 @@ async function bootstrap() {
     {
       transport: Transport.RMQ,
       options: {
-        urls: [
-          'amqp://' +
-            process.env.RMQ_USER +
-            ':' +
-            process.env.RMQ_PASSWORD +
-            '@' +
-            process.env.RMQ_URL,
-        ],
+        urls: [process.env.RMQ_URL],
         queue: process.env.RMQ_QUEUE,
         noAck: false,
       },

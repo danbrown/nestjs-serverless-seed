@@ -10,14 +10,7 @@ import {
 export class RMQClientProxy {
   getClient(
     queue = process.env.RMQ_QUEUE,
-    urls = [
-      'amqp://' +
-        process.env.RMQ_USER +
-        ':' +
-        process.env.RMQ_PASSWORD +
-        '@' +
-        process.env.RMQ_URL,
-    ],
+    urls = [process.env.RMQ_URL],
     options: RmqOptions = {},
   ): ClientProxy {
     return ClientProxyFactory.create({
