@@ -1,3 +1,4 @@
+# development stage
 FROM node:14.18.2-alpine AS development
 
 ARG NODE_ENV=development
@@ -12,12 +13,14 @@ RUN yarn install
 COPY prisma ./
 
 RUN npx prisma generate
+# PS: run the database migrations, remove if service has no database
 RUN yarn run migrate:prod
 
 COPY . .
 
 RUN yarn build
 
+# production stage
 FROM node:14.18.2-alpine AS production
 
 ARG NODE_ENV=production
